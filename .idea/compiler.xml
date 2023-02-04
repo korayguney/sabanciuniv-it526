@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="sabanci-01" />
+        <module name="sabanci-brainstorming" />
       </profile>
     </annotationProcessing>
   </component>

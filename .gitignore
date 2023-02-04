@@ -1,2 +1,3 @@
 # Project exclude paths
 /sabanci-01/target/
+!/.idea/

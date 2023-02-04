@@ -1,9 +1,6 @@
 package edu.sabanciuniv.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 // POJO --> Plain Old Java Object
 // Entity
@@ -16,6 +13,9 @@ public class Store {
     private String storeName;
     private String storePhone;
     private double squareMeter;
+
+    @ManyToOne
+    private ShoppingMall shoppingMall;
 
     // constructors
     public Store(String storeName, String storePhone, double squareMeter) {
@@ -51,6 +51,22 @@ public class Store {
 
     public void setSquareMeter(double squareMeter) {
         this.squareMeter = squareMeter;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public ShoppingMall getShoppingMall() {
+        return shoppingMall;
+    }
+
+    public void setShoppingMall(ShoppingMall shoppingMall) {
+        this.shoppingMall = shoppingMall;
     }
 
     // equals & hashCode & toString
