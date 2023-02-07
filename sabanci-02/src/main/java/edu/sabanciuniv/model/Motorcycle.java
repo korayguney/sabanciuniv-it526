@@ -1,5 +1,8 @@
 package edu.sabanciuniv.model;
 
+import jakarta.persistence.Entity;
+
+@Entity
 public class Motorcycle extends Vehicle {
     private double enginePower;
 

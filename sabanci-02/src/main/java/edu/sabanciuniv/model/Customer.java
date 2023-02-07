@@ -1,14 +1,22 @@
 package edu.sabanciuniv.model;
 
+import jakarta.persistence.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
 public class Customer {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     private String fullName;
     private String address;
     private long ssid;
     private String phoneNumber;
 
+    @OneToMany(mappedBy = "customer")
     private List<Vehicle> vehicleList = new ArrayList<>();
 
     public Customer(String fullName, String address, long ssid, String phoneNumber) {
@@ -58,6 +66,14 @@ public class Customer {
 
     public void setVehicleList(List<Vehicle> vehicleList) {
         this.vehicleList = vehicleList;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     @Override

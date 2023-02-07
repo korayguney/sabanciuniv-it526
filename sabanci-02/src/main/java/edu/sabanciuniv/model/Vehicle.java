@@ -1,15 +1,24 @@
 package edu.sabanciuniv.model;
 
+import jakarta.persistence.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Vehicle {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     private String model;
     private int year;
     private String plate;
 
+    @ManyToOne
     private Customer customer;
 
+    @ManyToMany(mappedBy = "vehicleList")
     private List<Accident> accidentList = new ArrayList<>();
 
     public Vehicle(String model, int year, String plate) {
@@ -58,6 +67,14 @@ public class Vehicle {
 
     public void setAccidentList(List<Accident> accidentList) {
         this.accidentList = accidentList;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     @Override
