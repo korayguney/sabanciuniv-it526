@@ -13,7 +13,7 @@ public class Accident {
     private int id;
     private LocalDate accidentDate;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "accidentList")
     private List<Vehicle> vehicleList = new ArrayList<>();
 
     public Accident(LocalDate accidentDate) {

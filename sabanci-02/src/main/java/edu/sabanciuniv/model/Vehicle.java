@@ -18,7 +18,7 @@ public class Vehicle {
     @ManyToOne
     private Customer customer;
 
-    @ManyToMany(mappedBy = "vehicleList")
+    @ManyToMany
     private List<Accident> accidentList = new ArrayList<>();
 
     public Vehicle(String model, int year, String plate) {
