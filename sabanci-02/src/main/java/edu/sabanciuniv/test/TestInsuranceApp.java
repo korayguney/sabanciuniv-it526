@@ -1,5 +1,6 @@
 package edu.sabanciuniv.test;
 
+import edu.sabanciuniv.controller.CustomerController;
 import edu.sabanciuniv.model.*;
 import edu.sabanciuniv.utility.EntityManagerUtils;
 import jakarta.persistence.EntityManager;
@@ -10,6 +11,10 @@ import java.time.Month;
 public class TestInsuranceApp {
     public static void main(String[] args) {
         saveTestData();
+        CustomerController customerController = new CustomerController();
+        for (Customer customer : customerController.findAllCustomers()) {
+            System.out.println(customer);
+        }
     }
 
     private static void saveTestData() {
