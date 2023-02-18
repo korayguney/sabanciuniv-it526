@@ -10,23 +10,39 @@ import java.time.Month;
 
 public class TestInsuranceApp {
     public static void main(String[] args) {
-        saveTestData();
+        if (isDataExists()) saveTestData();
         CustomerController customerController = new CustomerController();
+
+        //customerController.saveCustomer(new Customer("Kemal Türk", "İzmir", 323123213L, "566834757734"));
+
+        System.out.println("============= FIND ALL CUSTOMERS ===============");
         for (Customer customer : customerController.findAllCustomers()) {
             System.out.println(customer);
         }
+
+        System.out.println("============= FIND CUSTOMER ===============");
+        Customer foundcustomer = customerController.findCustomer(5);
+        System.out.println(foundcustomer);
+
+        System.out.println("============= DELETE CUSTOMER ===============");
+        customerController.deleteCustomer(foundcustomer);
+    }
+
+    private static boolean isDataExists() {
+        EntityManager entityManager = EntityManagerUtils.getEntityManager("mysqlPU");
+        return entityManager.createQuery("SELECT c FROM Customer c", Customer.class).getResultList().size() == 0;
     }
 
     private static void saveTestData() {
-        Customer customer1 = new Customer("Koray Guney", "Istanbul", 321562365123L, "111111111" );
+        Customer customer1 = new Customer("Koray Guney", "Istanbul", 321562365123L, "111111111");
         Customer customer2 = new Customer("Ali Veli", "Ankara", 32132143246L, "2222222222");
         Customer customer3 = new Customer("Ayse Simsek", "Edirne", 6452533241L, "3333333333");
 
-        Vehicle car1 = new Car("Porsche Cayenne", 2020,  "34VG5677", "Red");
-        Vehicle car2 = new Car("Toyota Corolla", 2017,  "08HG234", "Black");
-        Vehicle moto1 = new Motorcycle("Suzuki",  2020, "65NN322", 120.0);
-        Vehicle moto2 = new Motorcycle("Yamaha",  2017, "08TT122", 340.0);
-        Vehicle moto3 = new Motorcycle("Harley Davidson", 2013,  "34VG111", 420.0);
+        Vehicle car1 = new Car("Porsche Cayenne", 2020, "34VG5677", "Red");
+        Vehicle car2 = new Car("Toyota Corolla", 2017, "08HG234", "Black");
+        Vehicle moto1 = new Motorcycle("Suzuki", 2020, "65NN322", 120.0);
+        Vehicle moto2 = new Motorcycle("Yamaha", 2017, "08TT122", 340.0);
+        Vehicle moto3 = new Motorcycle("Harley Davidson", 2013, "34VG111", 420.0);
 
         car1.setCustomer(customer1);
         car2.setCustomer(customer2);
@@ -34,9 +50,9 @@ public class TestInsuranceApp {
         moto2.setCustomer(customer3);
         moto3.setCustomer(customer1);
 
-        Accident accident1 = new Accident(LocalDate.of(2021, Month.AUGUST,12));
-        Accident accident2 = new Accident(LocalDate.of(2020, Month.JUNE,24));
-        Accident accident3 = new Accident(LocalDate.of(2019, Month.MARCH,4));
+        Accident accident1 = new Accident(LocalDate.of(2021, Month.AUGUST, 12));
+        Accident accident2 = new Accident(LocalDate.of(2020, Month.JUNE, 24));
+        Accident accident3 = new Accident(LocalDate.of(2019, Month.MARCH, 4));
 
         car1.getAccidentList().add(accident1);
         car2.getAccidentList().add(accident1);
