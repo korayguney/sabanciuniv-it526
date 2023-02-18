@@ -13,6 +13,7 @@
         <module>sabanci-01</module>
         <module>sabanci-brainstorming</module>
         <module>sabanci-02</module>
+        <module>sabanci-03</module>
     </modules>
 
     <properties>
