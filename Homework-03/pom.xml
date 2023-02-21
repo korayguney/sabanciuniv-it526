@@ -3,23 +3,18 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>edu.sabanciuniv</groupId>
+        <artifactId>sabanciuniv-it526</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
 
-    <groupId>edu.sabanciuniv</groupId>
-    <artifactId>sabanciuniv-it526</artifactId>
-    <packaging>pom</packaging>
-    <version>1.0-SNAPSHOT</version>
-
-    <modules>
-        <module>sabanci-01</module>
-        <module>sabanci-brainstorming</module>
-        <module>sabanci-02</module>
-        <module>sabanci-03</module>
-        <module>Homework-03</module>
-    </modules>
+    <artifactId>Homework-03</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencies>

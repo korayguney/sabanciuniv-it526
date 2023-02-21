@@ -1,7 +1,7 @@
-package edu.sabanciuniv.test;
+package edu.sabanciuniv;
 
-import edu.sabanciuniv.model.ShoppingMall;
-import edu.sabanciuniv.model.Store;
+import edu.sabanciuniv.ShoppingMall;
+import edu.sabanciuniv.Store;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;

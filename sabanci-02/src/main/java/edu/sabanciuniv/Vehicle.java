@@ -1,4 +1,4 @@
-package edu.sabanciuniv.model;
+package edu.sabanciuniv;
 
 import jakarta.persistence.*;
 

@@ -1,6 +1,5 @@
 package edu.sabanciuniv;
 
-import edu.sabanciuniv.model.Customer;
 import edu.sabanciuniv.repository.CrudRepository;
 import edu.sabanciuniv.utility.EntityManagerUtils;
 import jakarta.persistence.EntityManager;
