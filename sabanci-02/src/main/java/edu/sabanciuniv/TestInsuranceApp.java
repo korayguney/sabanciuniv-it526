@@ -1,6 +1,5 @@
 package edu.sabanciuniv;
 
-import edu.sabanciuniv.*;
 import edu.sabanciuniv.controller.CustomerController;
 import edu.sabanciuniv.model.*;
 import edu.sabanciuniv.utility.EntityManagerUtils;

@@ -1,7 +1,7 @@
 package edu.sabanciuniv.controller;
 
-import edu.sabanciuniv.CustomerService;
-import edu.sabanciuniv.Customer;
+import edu.sabanciuniv.service.CustomerService;
+import edu.sabanciuniv.model.Customer;
 
 import java.util.List;
 

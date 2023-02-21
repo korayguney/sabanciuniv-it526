@@ -14,7 +14,7 @@
         <module>sabanci-brainstorming</module>
         <module>sabanci-02</module>
         <module>sabanci-03</module>
-        <module>Homework-03</module>
+        <module>sabanci-04</module>
     </modules>
 
     <properties>
@@ -22,17 +22,6 @@
         <maven.compiler.target>17</maven.compiler.target>
     </properties>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.hibernate.orm</groupId>
-            <artifactId>hibernate-core</artifactId>
-            <version>6.1.5.Final</version>
-        </dependency>
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.30</version>
-        </dependency>
-    </dependencies>
+
 
 </project>
