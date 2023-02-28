@@ -1,9 +1,8 @@
 package edu.sabanciuniv.sabanci05.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import jakarta.persistence.*;
 
 @Entity
 public class Book {
@@ -13,6 +12,10 @@ public class Book {
     private String bookName;
     private String author;
     private double price;
+
+    @ManyToOne
+    @JsonBackReference
+    private Order order;
 
     public Book(String bookName, String author, double price) {
         this.bookName = bookName;
@@ -85,5 +88,13 @@ public class Book {
                 ", author='" + author + '\'' +
                 ", price=" + price +
                 '}';
+    }
+
+    public Order getOrder() {
+        return order;
+    }
+
+    public void setOrder(Order order) {
+        this.order = order;
     }
 }
