@@ -7,12 +7,15 @@ import lombok.*;
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.UUID;
 
 @Entity
 @Table(name = "ordertable")
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 //@EqualsAndHashCode
 //@Data
 public class Order {
@@ -20,7 +23,7 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
-    private String orderId;
+    private UUID orderId;
     private LocalDateTime orderDate;
 
     @ManyToMany
@@ -28,7 +31,7 @@ public class Order {
    // @Column(name = "books")
     private Set<Book> bookList = new HashSet<>();
 
-    public Order(String orderId, LocalDateTime orderDate) {
+    public Order(UUID orderId, LocalDateTime orderDate) {
         this.orderId = orderId;
         this.orderDate = orderDate;
     }

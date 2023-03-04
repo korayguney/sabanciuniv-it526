@@ -3,19 +3,25 @@ package edu.sabanciuniv.sabanci05.service;
 import edu.sabanciuniv.sabanci05.model.Book;
 import edu.sabanciuniv.sabanci05.model.Order;
 import edu.sabanciuniv.sabanci05.model.dto.BookResponse;
+import edu.sabanciuniv.sabanci05.model.dto.OrderRequest;
+import edu.sabanciuniv.sabanci05.model.dto.OrderResponse;
+import edu.sabanciuniv.sabanci05.repository.BookRepository;
 import edu.sabanciuniv.sabanci05.repository.OrderRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
+import java.time.LocalDateTime;
+import java.util.*;
+import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
 public class OrderService {
 
     private final OrderRepository orderRepository;
+    private final BookRepository bookRepository;
 
     public Set<Book> getAllBooksOfOrder(String orderId) {
         Order order = orderRepository.findOrderByOrderId(orderId);
@@ -35,5 +41,31 @@ public class OrderService {
             bookDTOList.add(bookDTO);
         }
         return bookDTOList;
+    }
+
+    public OrderResponse createOrder(OrderRequest orderRequest) {
+        Set<Book> bookList1 = new HashSet<>();
+
+        // alternative-1
+        Set<Book> bookList = orderRequest.getBookIdList().stream()
+                .map(bookId -> bookRepository.findById(bookId).orElseThrow(IllegalArgumentException::new))
+                .collect(Collectors.toSet());
+
+
+        // alternative-2
+        orderRequest.getBookIdList().stream()
+                .forEach((b) ->
+                        bookList1.add(bookRepository.findById(b).orElseThrow(IllegalArgumentException::new))
+                );
+
+        Order order = Order.builder()
+                .orderId(UUID.randomUUID())
+                .orderDate(LocalDateTime.now())
+                .bookList(bookList)
+                .build();
+
+        order = orderRepository.save(order);
+
+        return new OrderResponse(order.getOrderId().toString());
     }
 }
