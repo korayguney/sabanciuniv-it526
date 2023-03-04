@@ -9,7 +9,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "book_order")
+@Table(name = "ordertable")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -23,8 +23,9 @@ public class Order {
     private String orderId;
     private LocalDateTime orderDate;
 
-    @OneToMany(mappedBy = "order")
-    @JsonManagedReference
+    @ManyToMany
+    //@JsonManagedReference
+   // @Column(name = "books")
     private Set<Book> bookList = new HashSet<>();
 
     public Order(String orderId, LocalDateTime orderDate) {

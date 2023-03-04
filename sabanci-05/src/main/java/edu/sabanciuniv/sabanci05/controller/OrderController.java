@@ -1,7 +1,7 @@
 package edu.sabanciuniv.sabanci05.controller;
 
 import edu.sabanciuniv.sabanci05.model.Book;
-import edu.sabanciuniv.sabanci05.model.dto.BookDTO;
+import edu.sabanciuniv.sabanci05.model.dto.BookResponse;
 import edu.sabanciuniv.sabanci05.service.OrderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,7 +23,7 @@ public class OrderController {
     }
 
     @GetMapping("/orders/{orderId}/bookdtos")
-    public List<BookDTO> getAllBookDTOsOfOrder(@PathVariable String orderId) {
+    public List<BookResponse> getAllBookDTOsOfOrder(@PathVariable String orderId) {
         return orderService.getAllBookDTOsOfOrder(orderId);
     }
 

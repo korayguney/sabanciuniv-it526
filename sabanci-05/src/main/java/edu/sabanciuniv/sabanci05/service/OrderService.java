@@ -2,7 +2,7 @@ package edu.sabanciuniv.sabanci05.service;
 
 import edu.sabanciuniv.sabanci05.model.Book;
 import edu.sabanciuniv.sabanci05.model.Order;
-import edu.sabanciuniv.sabanci05.model.dto.BookDTO;
+import edu.sabanciuniv.sabanci05.model.dto.BookResponse;
 import edu.sabanciuniv.sabanci05.repository.OrderRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -22,13 +22,13 @@ public class OrderService {
         return order.getBookList();
     }
 
-    public List<BookDTO> getAllBookDTOsOfOrder(String orderId) {
+    public List<BookResponse> getAllBookDTOsOfOrder(String orderId) {
         Order order = orderRepository.findOrderByOrderId(orderId);
-        List<BookDTO> bookDTOList = new ArrayList<>();
+        List<BookResponse> bookDTOList = new ArrayList<>();
         // mapping
         // mapstruct, dozer API, jmapper
         for (Book book : order.getBookList()) {
-            BookDTO bookDTO = BookDTO.builder()
+            BookResponse bookDTO = BookResponse.builder()
                     .bookName(book.getBookName())
                     .price(book.getPrice())
                     .build();

@@ -29,10 +29,10 @@ public class TestDataInitializer implements CommandLineRunner {
             Order order1 = new Order("aaaa", LocalDateTime.of(2022, Month.DECEMBER, 1, 23, 01));
             Order order2 = new Order("bbbb", LocalDateTime.of(2022, Month.AUGUST, 1, 21, 01));
 
-            book1.setOrder(order1);
-            book2.setOrder(order2);
-            book3.setOrder(order2);
-            book3.setOrder(order1);
+            order1.getBookList().add(book1);
+            order1.getBookList().add(book2);
+            order2.getBookList().add(book2);
+            order2.getBookList().add(book3);
 
             orderRepository.save(order1);
             orderRepository.save(order2);
