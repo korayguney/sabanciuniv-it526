@@ -11,10 +11,12 @@
 
     <modules>
         <module>sabanci-01</module>
-        <module>sabanci-brainstorming</module>
         <module>sabanci-02</module>
         <module>sabanci-03</module>
         <module>sabanci-04</module>
+        <module>sabanci-05</module>
+        <module>sabanci-06</module>
+        <module>sabanci-brainstorming</module>
     </modules>
 
     <properties>
