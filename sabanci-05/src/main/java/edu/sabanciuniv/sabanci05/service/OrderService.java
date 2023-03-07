@@ -46,10 +46,22 @@ public class OrderService {
     public OrderResponse createOrder(OrderRequest orderRequest) {
         Set<Book> bookList1 = new HashSet<>();
 
+        // for loop --> orderRequest.getBookIdList()
+        //  Book --> bookRepository.findById(bookId)
+        //  Set<Book> add
+
         // alternative-1
         Set<Book> bookList = orderRequest.getBookIdList().stream()
                 .map(bookId -> bookRepository.findById(bookId).orElseThrow(IllegalArgumentException::new))
                 .collect(Collectors.toSet());
+
+        Set<Book> bookList2 = orderRequest.getBookIdList().stream()
+                .map(new Function<Integer, Book>() {
+                    @Override
+                    public Book apply(Integer bookId) {
+                        return bookRepository.findById(bookId).orElseThrow(IllegalArgumentException::new);
+                    }
+                }).collect(Collectors.toSet());
 
 
         // alternative-2
