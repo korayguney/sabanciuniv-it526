@@ -18,6 +18,7 @@
         <module>sabanci-06</module>
         <module>sabanci-07</module>
         <module>sabanci-brainstorming</module>
+        <module>sabanci-microservices</module>
     </modules>
 
     <properties>

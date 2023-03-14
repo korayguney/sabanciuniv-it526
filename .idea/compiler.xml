@@ -9,8 +9,10 @@
         <outputRelativeToContentRoot value="true" />
         <module name="sabanci-brainstorming" />
         <module name="sabanci-01" />
+        <module name="customer-service" />
         <module name="sabanci-06" />
         <module name="sabanci-07" />
+        <module name="sabanci-microservices" />
         <module name="sabanci-02" />
         <module name="sabanci-03" />
         <module name="sabanci-04" />
@@ -23,6 +25,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="customer-service" options="-parameters" />
       <module name="sabanci-03" options="-parameters" />
       <module name="sabanci-04" options="-parameters" />
       <module name="sabanci-05" options="-parameters" />

@@ -10,6 +10,7 @@
         <option value="$PROJECT_DIR$/sabanci-06/pom.xml" />
         <option value="$PROJECT_DIR$/sabanci-07/pom.xml" />
         <option value="$PROJECT_DIR$/sabanci-01/pom.xml" />
+        <option value="$PROJECT_DIR$/sabanci-microservices/customer-service/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

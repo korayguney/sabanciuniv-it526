@@ -28,5 +28,10 @@ public class TodoController {
         return todo;
     }
 
+    @GetMapping("/todo/second/{id}")
+    public TodoEntity getTodoFromDatabase(@PathVariable int id) {
+        TodoEntity todo =  todoRepository.getTodoEntityByTodoId(id);
+        return todo;
+    }
 
 }
