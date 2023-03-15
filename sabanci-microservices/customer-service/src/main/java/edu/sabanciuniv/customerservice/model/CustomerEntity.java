@@ -20,4 +20,5 @@ public class CustomerEntity {
     private String firstname;
     private String lastname;
     private String email;
+    private boolean isPremium;
 }
